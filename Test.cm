@@ -1,0 +1,35 @@
+{ 
+    var i:numero
+    var j[10]:numero
+    var marca:numero
+    var maximo:numero
+    var x:numero
+}
+
+programa
+
+
+    i <=> 1;
+    marca <=> 0;
+    j[1] <=> 8;
+    j[2] <=> 13;
+    j[3] <=> 2;
+    j[4] <=> 54;
+    j[5] <=> 22;
+    j[6] <=> 1;
+    j[7] <=> 9;
+    j[8] <=> 44;
+    j[9] <=> 120;
+    j[10] <=> 10;
+    ciclo_si(i<=10)  
+        verdad(j[i]>=marca) haz
+            marca<=>j[i];
+            maximo<=>i;
+        fin_verdad;
+        i<=> i + 1;
+    fin_ciclo;
+    imprime("Encontramos un maximo en el elemento ");
+    imprime_ret(maximo);
+    imprime_ret("Programa terminado");
+
+fin_programa

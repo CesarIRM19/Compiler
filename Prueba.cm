@@ -1,0 +1,48 @@
+{
+    var a,b,c,contador,disc,resultado,salir,y,x,z:numero
+    var nombre_in,nombre,cosa:cadena
+}
+
+
+programa
+
+    contador <=> 0;
+
+    imprime("Dame coeficiente A: ");
+    lee(x);
+    imprime("Dame coeficiente B: ");
+    lee(y);
+    imprime("Dame coeficiente C: ");
+    lee(z);
+
+    
+
+    imprime("Ingresa tu nombre: ");
+    lee(nombre_in);
+
+
+    verdad(x  < 0)haz
+        imprime_ret("La ecuacion tiene raices complejas");
+    falso
+        imprime_ret("La ecuacion tiene raices reales");
+    fin_verdad;
+
+    imprime("El valor del discriminante es: ");
+    imprime(disc);
+
+    hacer
+        imprime_ret("Adios");
+        %lee(salir);
+        contador <=> contador + 1;
+    hasta(contador > 10);
+
+    
+fin_programa
+
+rutinas
+    funcion numero ejemplo (numero a, numero b, numero c)
+
+        disc <=> b*b-4*a*c;
+
+    fin_funcion
+fin_rutinas
