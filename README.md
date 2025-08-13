@@ -192,7 +192,10 @@ Para compilar y ejecutar tu programa en el lenguaje propio, sigue estos pasos:
    Abre la terminal (CMD o PowerShell) en esa carpeta y ejecuta el archivo `.bat` con el siguiente formato:  
    ```bash
    .\Compilador.bat Nombre_del_codigo
-
+4. **Ejecutar el programa compilado**
+   Una vez terminada la compilación sin errores, ejecuta el programa con el siguiente comando:
+   ```bash
+    java Compiled_Programs.Nombre_del_codigo
 ---
 
 ## ⚙️ Tecnologías Utilizadas
