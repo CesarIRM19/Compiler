@@ -178,10 +178,23 @@ fin_rutinas
 ```
 
 ---
+## 📌 Ejecución del compilador
+
+Para compilar y ejecutar tu programa en el lenguaje propio, sigue estos pasos:
+
+1. **Prepara tu código fuente**  
+   Crea un archivo con extensión `.cm` que contenga el código del programa.
+
+2. **Ubicación de archivos**  
+   Guarda el archivo `.cm` en la misma carpeta donde se encuentra el archivo `Compilador.bat`.
+
+3. **Compilar el programa**  
+   Abre la terminal (CMD o PowerShell) en esa carpeta y ejecuta el archivo `.bat` con el siguiente formato:  
+   ```bash
+   .\Compilador.bat Nombre_del_codigo
+
+---
 
 ## ⚙️ Tecnologías Utilizadas
 - **Java** (implementación del compilador)
-- **JFlex / CUP** (opcional, si se usa para análisis léxico y sintáctico)
 
-## 📄 Licencia
-Este proyecto se distribuye bajo la licencia que el autor considere apropiada.
