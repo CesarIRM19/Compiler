@@ -1,3 +1,4 @@
+package Source_files;
 import java.io.*;
 
 public class Ligador {
@@ -53,7 +54,7 @@ public class Ligador {
     
     public static void main(String[] args) {
         entrada = args[0] + ".cm3";
-        salida = args[0] + ".java";
+        salida = "Compiled_Programs\\" + args[0] + ".java";
         if (!xArchivo(entrada).exists()) {
             System.out.println("ERROR: El archivo: " + entrada + " no existe");
             System.exit(4);
@@ -90,6 +91,8 @@ public class Ligador {
                 }
             }
         }
+        
+        creaEscribeArchivo(xArchivo(salida), "package Compiled_Programs;");
         creaEscribeArchivo(xArchivo(salida), "import java.io.*;");
         creaEscribeArchivo(xArchivo(salida), "");
         creaEscribeArchivo(xArchivo(salida), "public class " + args[0] + " {");

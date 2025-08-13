@@ -1,0 +1,73 @@
+package Compiled_Programs;
+import java.io.*;
+
+public class Prueba {
+  static String inst[] = new String[10000];
+
+  public static void main(String[] args) {
+      inst[0] = "mete 4";
+      inst[1] = "mete 0";
+      inst[2] = "asig";
+      inst[3] = "mete Dame coeficiente A: ";
+      inst[4] = "escribe";
+      inst[5] = "mete 9";
+      inst[6] = "lee";
+      inst[7] = "asig";
+      inst[8] = "mete Dame coeficiente B: ";
+      inst[9] = "escribe";
+      inst[10] = "mete 8";
+      inst[11] = "lee";
+      inst[12] = "asig";
+      inst[13] = "mete Dame coeficiente C: ";
+      inst[14] = "escribe";
+      inst[15] = "mete 10";
+      inst[16] = "lee";
+      inst[17] = "asig";
+      inst[18] = "mete Ingresa tu nombre: ";
+      inst[19] = "escribe";
+      inst[20] = "mete 11";
+      inst[21] = "lee";
+      inst[22] = "asig";
+      inst[23] = "mete 0";
+      inst[24] = "mete 9";
+      inst[25] = "mem";
+      inst[26] = "opdif";
+      inst[27] = "copia";
+      inst[28] = "opabs";
+      inst[29] = "opsum";
+      inst[30] = "mete 36";
+      inst[31] = "irverdad";
+      inst[32] = "mete La ecuacion tiene raices reales";
+      inst[33] = "escribenl";
+      inst[34] = "mete 38";
+      inst[35] = "ira";
+      inst[36] = "mete La ecuacion tiene raices complejas";
+      inst[37] = "escribenl";
+      inst[38] = "copia";
+      inst[39] = "saca";
+      inst[40] = "mete El valor del discriminante es: ";
+      inst[41] = "escribe";
+      inst[42] = "mete 5";
+      inst[43] = "mem";
+      inst[44] = "escribe";
+      inst[45] = "mete Adios";
+      inst[46] = "escribenl";
+      inst[47] = "mete 4";
+      inst[48] = "mete 4";
+      inst[49] = "mem";
+      inst[50] = "mete 1";
+      inst[51] = "opsum";
+      inst[52] = "asig";
+      inst[53] = "mete 4";
+      inst[54] = "mem";
+      inst[55] = "mete 10";
+      inst[56] = "opdif";
+      inst[57] = "copia";
+      inst[58] = "opabs";
+      inst[59] = "opsum";
+      inst[60] = "mete 45";
+      inst[61] = "irfalso";
+      inst[62] = "fin";
+      MaqCAPJava.programa(inst, args);
+  }
+}

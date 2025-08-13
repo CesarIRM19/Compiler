@@ -1,3 +1,5 @@
+package Source_files;
+
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -119,43 +121,49 @@ public class SLR1 {
 	public static void preProcesador() {
         String salir = "";
 		String atri = "";
-		
-        while (!salir.equals("fin_rutinas")) {
+		boolean existe = false;
+
+        while (!salir.equals("fin")) {
 
             lee_token(xArchivo(Entrada));
             salir = LEX;
-            if (a.equals("funcion")) {
-                lee_token(xArchivo(Entrada));
-                if (a.equals("numero") || a.equals("cadena")) {
-                    TIPO_F = LEX;
-                    lee_token(xArchivo(Entrada));
-                    if (a.equals("id")) {
-                        ID_F = LEX;
-						//lee_token(xArchivo(Entrada));
-						while (!a.equals(")")) {
-							lee_token(xArchivo(Entrada));					
+			if (a.equals("rutina")) {
+				existe = true;
+			}else{
+				if (a.equals("funcion")) {
+					lee_token(xArchivo(Entrada));
+					if (a.equals("numero") || a.equals("cadena")) {
+						TIPO_F = LEX;
+						lee_token(xArchivo(Entrada));
+						if (a.equals("id")) {
+							ID_F = LEX;
+							//lee_token(xArchivo(Entrada));
+							while (!a.equals(")")) {
+								lee_token(xArchivo(Entrada));					
 
-							if (a.equals("numero") || a.equals("cadena")){
-								atri += "," + LEX;
+								if (a.equals("numero") || a.equals("cadena")){
+									atri += "," + LEX;
+								}
+								//pausa();
+
 							}
-							//pausa();
-
+							inserta(ID_F, TIPO_F, "fun", (dirmem++) + "", "", "", atri);
+							
+							
+						} else {
+							System.out.println("\n\n\7ERROR: Funcion mal declarada => \" " + LEX + " \""
+									+ " en el renglon [ " + RENGLON + " ]");
+							System.exit(4);
 						}
-						inserta(ID_F, TIPO_F, "fun", (dirmem++) + "", "", "", atri);
-						
-						
-                    } else {
-                        System.out.println("\n\n\7ERROR: Funcion mal declarada => \" " + LEX + " \""
-                                + " en el renglon [ " + RENGLON + " ]");
-                        System.exit(4);
-                    }
-                } else {
-                    System.out.println("\n\n\7ERROR: Funcion mal declarada => \" " + LEX + " \"" + " en el renglon [ "
-                            + RENGLON + " ]");
-                    System.exit(4);
-                }
+					} else {
+						System.out.println("\n\n\7ERROR: Funcion mal declarada => \" " + LEX + " \"" + " en el renglon [ "
+								+ RENGLON + " ]");
+						System.exit(4);
+					}
 
-            }
+				}
+			}
+            
 
             if (salir.equals("fin_rutinas")) {
 				
@@ -164,18 +172,16 @@ public class SLR1 {
                 System.out.println("\nPreprocesamiento terminado\n");
                 Posicion = 0;
 				//ejecucionFuncion(ID_F,TIPO_F,Posicion);
-				pausa();
+				//pausa();
                 break;
             }
-			if (salir.equals("fin")) {
+			if (salir.equals("fin") && existe) {
 				System.out.println("\n\n\7ERROR: fin_rutinas faltante o mal redactado en el RENGLON [ " + RENGLON + " ]");
 				System.exit(4);
 			}
-			
-            
-            
         }
-
+		System.out.println("\nPreprocesamiento terminado\n");
+        Posicion = 0;
     }
 
     public static void rut_error() {
@@ -1597,16 +1603,6 @@ public class SLR1 {
 			System.out.printf("  %-15s  %-8s  %-3s  %5s  %5s  %3s  %-15s\n",ID[i],TIPO[i],OBJ[i],DIRMEM[i],TAM[i],ETQ[i],RUT[i]);
 		System.out.println("  ==================================================================");
 	}
-/*
-	public static int existe_funcion(String cadena){
-		if (condition) {
-			
-		}
-		System.out.println("\n\n\7ERROR: Funcion no delcarada => \" " + cadena +" \"" + " en el renglon [ " + RENGLON + " ] en la columna [ " + RENGLON + " ]");
-        System.exit(4);
-        return -1;
-	}
-	*/
 	public static boolean es_atributo(String cadena){
 		if (TipoEquiv(K_t[iKt], RUT[renSYM(ID_F)].split(",")[1])) {
 			return true;
@@ -1614,11 +1610,8 @@ public class SLR1 {
 		System.out.println("\n\n\7ERROR: El atributo no es del mismo tipo que el de la variable  => " + cadena + " !! " + RUT[renSYM(ID_F)].split(",")[1] + " en el RENGLON [ " + RENGLON + " ]");
 		System.exit(4);
 		return false;
-	
-		
-
-		
 	}
+
 	public static void ejecucionFuncion(String nombreFuncion, String tipoFuncion, int retorno, String valorS) {
 		boolean fun_enc = false;
 		int posFun=0;
@@ -1710,48 +1703,7 @@ public class SLR1 {
 			}
 		}
 	}
-	/* 
-	public static void preProcesador() {
-        String salir = "";
-
-        while (!salir.equals("fin_rutinas")) {
-
-            lee_token(xArchivo(Entrada));
-            salir = LEX;
-            if (a.equals("funcion")) {
-                lee_token(xArchivo(Entrada));
-                if (a.equals("numero") || a.equals("cadena")) {
-                    TIPO_F = LEX;
-                    lee_token(xArchivo(Entrada));
-                    if (a.equals("id")) {
-                        ID_F = LEX;
-                        inserta(ID_F, TIPO_F, "fun", (dirmem++) + "", "", "", "");
-                    } else {
-                        System.out.println("\n\n\7ERROR: Funcion mal declarada => \" " + LEX + " \""
-                                + " en el renglon [ " + RENGLON + " ]");
-                        System.exit(4);
-                    }
-                } else {
-                    System.out.println("\n\n\7ERROR: Funcion mal declarada => \" " + LEX + " \"" + " en el renglon [ "
-                            + RENGLON + " ]");
-                    System.exit(4);
-                }
-
-            }
-			
-            if (salir.equals("fin_rutinas") || salir.equals("fin")) {
-                print_tabla();
-                System.out.println("\nPreprocesamiento terminado\n");
-                Posicion = 0;
-                break;
-
-            }
-            
-            
-        }
-
-    }
-	*/
+	
 	
 	public static String genetq(){
         return((contetq++)+"");
@@ -1924,6 +1876,7 @@ public class SLR1 {
 			case 72:
 				VAL = LEX;
 				QueExista(VAL);
+				
 				DIR = DIRMEM[renSYM(LEX)];
 				break;
 			case 75:
@@ -1955,6 +1908,7 @@ public class SLR1 {
 				IDX = LEX;
 				Rango(VAL, IDX);
 				DIR = (Integer.parseInt(DIRMEM[renSYM(VAL)]) + Integer.parseInt(IDX) - 1) + "";
+
 				break;
 			case 136:
 				IDX = LEX;
@@ -2257,7 +2211,7 @@ public class SLR1 {
     public static void main(String[] argumento) {
         crearTabla();
 
-        Entrada = argumento[0] + ".cm1";
+        Entrada =  argumento[0] + ".cm1";
 
         push("0");
 
@@ -2281,7 +2235,7 @@ public class SLR1 {
 				primeraPasada();
     			segundaPasada();
 				System.out.println("\nCodigo2: \n" + PPAL_c);
-				pausa();
+				//pausa();
 				guardarEnArchivo(PPAL_c, argumento[0] + ".cm3");
                 System.out.println("\nCompilacion terminada");
                 System.exit(0);
