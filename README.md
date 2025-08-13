@@ -5,7 +5,7 @@ El lenguaje permite declarar variables, escribir un programa principal y definir
 
 ---
 
-## 📜 Estructura General de un Programa
+## Estructura General de un Programa
 
 Un programa está dividido en tres secciones principales:
 
@@ -15,7 +15,7 @@ Un programa está dividido en tres secciones principales:
 
 ---
 
-## 🔹 Sección de Variables
+## Sección de Variables
 
 Se define dentro de llaves `{ }` con la siguiente sintaxis:
 
@@ -26,11 +26,11 @@ Se define dentro de llaves `{ }` con la siguiente sintaxis:
 }
 ```
 
-### 🔤 Sintaxis de identificadores (id)
+### Sintaxis de identificadores (id)
 - Puede contener letras, números y el carácter `_`.
 - No puede terminar con `_`.
 
-### 🗂 Tipos de variables
+### Tipos de variables
 - **Cadena** → Texto entre comillas dobles `" "`.
 - **Número** → Enteros o decimales.
 - **Arreglos** → De **Cadenas** o **Números**, almacenan varios valores del mismo tipo.
@@ -53,7 +53,7 @@ programa
 fin_programa
 ```
 
-### 🧩 Bloques de código
+### Bloques de código
 
 #### 1. **Asignación**
 ```plaintext
@@ -105,7 +105,7 @@ lee(variable);
 
 ---
 
-## 🔹 Operadores
+## Operadores
 
 ### Lógicos
 | Operador | Símbolo | Ejemplo |
@@ -136,7 +136,7 @@ lee(variable);
 
 ---
 
-## 🔹 Sección de Funciones
+## Sección de Funciones
 
 Se define así:
 
@@ -146,7 +146,7 @@ rutinas
 fin_rutinas
 ```
 
-### 🛠 Estructura de una función
+### Estructura de una función
 ```plaintext
 funcion TIPO id (PARAMETROS)
     BLOQUE
@@ -155,7 +155,7 @@ fin_funcion
 
 ---
 
-## 📌 Ejemplo Completo
+## Ejemplo Completo
 
 ```plaintext
 {
@@ -178,7 +178,7 @@ fin_rutinas
 ```
 
 ---
-## 📌 Ejecución del compilador
+## Ejecución del compilador
 
 Para compilar y ejecutar tu programa en el lenguaje propio, sigue estos pasos:
 
@@ -198,6 +198,6 @@ Para compilar y ejecutar tu programa en el lenguaje propio, sigue estos pasos:
     java Compiled_Programs.Nombre_del_codigo
 ---
 
-## ⚙️ Tecnologías Utilizadas
+## Tecnologías Utilizadas
 - **Java** (implementación del compilador)
 
